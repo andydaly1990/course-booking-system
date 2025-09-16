@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { NgClass, NgStyle, NgIf, NgFor } from '@angular/common';
+
 
 export interface Course {
   id: number;
@@ -14,6 +17,8 @@ export interface Course {
   selector: 'app-courses-list',
   templateUrl: './courses-list.component.html',
   styleUrls: ['./courses-list.component.css']   // small fix: should be "styleUrls"
+  ,
+  imports: [NgStyle,CommonModule, NgClass]
 })
 export class CoursesListComponent {
   title = "Available Courses";
