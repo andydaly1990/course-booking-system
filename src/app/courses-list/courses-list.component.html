@@ -10,6 +10,9 @@
         [ngStyle]="{'border': courses[0].soldOut ? '2px solid red' : ''}" 
         [src]="courses[0].img" 
         [alt]="courses[0].title">
+    @if (courses[0].price < 50 && courses[0].soldOut==false) {
+        <div class="special-offer">Special Offer</div>
+    }
     <button *ngIf="!courses[0].soldOut" (click)="viewDetails(courses[0].title)">View Details</button>
 </div>
 <div class="course-item">
@@ -22,6 +25,9 @@
         [ngStyle]="{'border': courses[1].soldOut ? '2px solid red' : 'none'}" 
         [src]="courses[1].img" 
         [alt]="courses[1].title">
+    @if (courses[1].price < 50 && courses[1].soldOut==false) {
+        <div class="special-offer">Special Offer</div>
+    }
      <button *ngIf="!courses[1].soldOut" (click)="viewDetails(courses[1].title)">View Details</button>
 </div>
 

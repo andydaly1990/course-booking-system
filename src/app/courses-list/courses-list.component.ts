@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NgClass, NgStyle, NgIf, NgFor } from '@angular/common';
 
@@ -18,9 +18,12 @@ export interface Course {
   templateUrl: './courses-list.component.html',
   styleUrls: ['./courses-list.component.css']   // small fix: should be "styleUrls"
   ,
-  imports: [NgStyle,CommonModule, NgClass]
+  imports: [NgStyle,CommonModule]
 })
-export class CoursesListComponent {
+export class CoursesListComponent implements OnInit {
+  ngOnInit(): void {
+    console.log("Courses Component Initialized")
+  }
   title = "Available Courses";
 
   courses: Course[] = [
@@ -28,7 +31,7 @@ export class CoursesListComponent {
       id: 1,
       title: 'Intro to Angular',
       description: 'Learn the basics of Angular',
-      price: 100,
+      price: 49.99,
       date: '01-01-2025',
       soldOut: true,
       img: 'angular-logo.png'
@@ -37,7 +40,7 @@ export class CoursesListComponent {
       id: 2,
       title: 'Advanced Angular',
       description: 'Learn advanced topics of Angular',
-      price: 100,
+      price: 49.99,
       date: '05-05-2025',
       soldOut: false,
       img: 'angular-logo.png'
