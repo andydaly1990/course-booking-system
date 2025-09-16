@@ -1,34 +1,23 @@
 <h2>{{ title }}</h2>
+@for (item of courses; track item.id) {
 <div class="course-item">
-    <h3>{{ courses[0].title }}</h3>
-    <span class="badge" *ngIf="courses[0].soldOut">Sold Out</span>
-    <p>{{ courses[0].description }}</p>
-    <p>{{ courses[0].price }}</p>
-    <p>{{ courses[0].date }}</p>
+    <h3>{{ item.title }}</h3>
+    <span class="badge" *ngIf="item.soldOut">Sold Out</span>
+    <p>{{ item.description }}</p>
+    <p>{{ item.price }}</p>
+    <p>{{ item.date }}</p>
     
     <img 
-        [ngStyle]="{'border': courses[0].soldOut ? '2px solid red' : ''}" 
-        [src]="courses[0].img" 
-        [alt]="courses[0].title">
-    @if (courses[0].price < 50 && courses[0].soldOut==false) {
+        [ngStyle]="{'border': item.soldOut ? '2px solid red' : ''}" 
+        [src]="item.img" 
+        [alt]="item.title">
+    @if (item.price < 50 && item.soldOut==false) {
         <div class="special-offer">Special Offer</div>
     }
-    <button *ngIf="!courses[0].soldOut" (click)="viewDetails(courses[0].title)">View Details</button>
+    <button *ngIf="!item.soldOut" (click)="viewDetails(item.title)">View Details</button>
 </div>
-<div class="course-item">
-    <h3>{{ courses[1].title }}</h3>
-    <span class="badge" *ngIf="courses[1].soldOut">Sold Out</span>
-    <p>{{ courses[1].description }}</p>
-    <p>{{ courses[1].price }}</p>
-    <p>{{ courses[1].date }}</p>
-    <img 
-        [ngStyle]="{'border': courses[1].soldOut ? '2px solid red' : 'none'}" 
-        [src]="courses[1].img" 
-        [alt]="courses[1].title">
-    @if (courses[1].price < 50 && courses[1].soldOut==false) {
-        <div class="special-offer">Special Offer</div>
-    }
-     <button *ngIf="!courses[1].soldOut" (click)="viewDetails(courses[1].title)">View Details</button>
-</div>
+}
+
+
 
 

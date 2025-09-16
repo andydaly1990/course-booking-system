@@ -40,10 +40,19 @@ export class CoursesListComponent implements OnInit {
       id: 2,
       title: 'Advanced Angular',
       description: 'Learn advanced topics of Angular',
-      price: 49.99,
+      price: 60,
       date: '05-05-2025',
       soldOut: false,
       img: 'angular-logo.png'
+    },
+    {
+      id: 3,
+      title: 'Typescript Fundamentals',
+      description: 'Learn about Typescript',
+      price: 45.99,
+      date: '21-07-2025',
+      soldOut: false,
+      img: 'typescript-logo.png'
     }
   ];
 

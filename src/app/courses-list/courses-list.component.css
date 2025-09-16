@@ -38,3 +38,8 @@ img {
   font-size: 0.8rem;
   margin-left: 8px;
 }
+
+.special-offer {
+    color: #007e24;
+    font-weight: bold;
+}
