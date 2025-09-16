@@ -38,4 +38,8 @@ export class CoursesListComponent {
       img: 'angular-logo.png'
     }
   ];
+
+  viewDetails(title: string): void {
+    alert(`Viewing details for ${title}`)
+  }
 }
