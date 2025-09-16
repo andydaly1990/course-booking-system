@@ -4,8 +4,8 @@
     <h3>{{ item.title }}</h3>
     <span class="badge" *ngIf="item.soldOut">Sold Out</span>
     <p>{{ item.description }}</p>
-    <p>{{ item.price }}</p>
-    <p>{{ item.date }}</p>
+    <p>{{ item.price | currency:'EUR'}}</p>
+    <p>{{ item.date | date: 'longDate'}}</p>
     
     <img 
         [ngStyle]="{'border': item.soldOut ? '2px solid red' : ''}" 
