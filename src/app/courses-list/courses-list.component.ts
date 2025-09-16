@@ -5,21 +5,37 @@ export interface Course {
   title: string;
   description: string;
   price: number;
-  date: string
+  date: string;
+  soldOut?: boolean;
+  img?: string;   // path to a course-specific image
 }
 
 @Component({
   selector: 'app-courses-list',
-  imports: [],
   templateUrl: './courses-list.component.html',
-  styleUrl: './courses-list.component.css'
+  styleUrls: ['./courses-list.component.css']   // small fix: should be "styleUrls"
 })
 export class CoursesListComponent {
+  title = "Available Courses";
 
-  title:string = "Available Courses";
   courses: Course[] = [
-    {id:1,title:'Intro to Angular', description: 'Learn the basics of Angular',price:100, date:'01-01-2025'},
-    {id:2,title:'Advanced Angular', description: 'Learn advanced topics of Angular',price:100,date:'05-05-2025'}
-  ]
-
+    {
+      id: 1,
+      title: 'Intro to Angular',
+      description: 'Learn the basics of Angular',
+      price: 100,
+      date: '01-01-2025',
+      soldOut: true,
+      img: 'angular-logo.png'
+    },
+    {
+      id: 2,
+      title: 'Advanced Angular',
+      description: 'Learn advanced topics of Angular',
+      price: 100,
+      date: '05-05-2025',
+      soldOut: false,
+      img: 'angular-logo.png'
+    }
+  ];
 }

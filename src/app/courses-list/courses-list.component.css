@@ -13,3 +13,8 @@ h3 {
 button:hover {
     background-color: #0056b3;
 }
+
+img {
+    height: 3em;
+    width: 3em;
+}
