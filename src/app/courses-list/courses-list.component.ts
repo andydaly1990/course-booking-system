@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { CommonModule, CurrencyPipe, DatePipe } from '@angular/common';
-import { NgClass, NgStyle, NgIf, NgFor } from '@angular/common';
+import { CommonModule} from '@angular/common';
+import { CourseCardComponent } from "../course-card/course-card.component";
 
 
 export interface Course {
@@ -11,13 +11,14 @@ export interface Course {
   date: string;
   soldOut?: boolean;
   img?: string;   // path to a course-specific image
+  onSale?: boolean;
 }
 
 @Component({
   selector: 'app-courses-list', // 👈 defines the HTML tag name
   templateUrl: './courses-list.component.html',
   styleUrls: ['./courses-list.component.css'],
-  imports: [NgStyle,CommonModule, DatePipe, CurrencyPipe]
+  imports: [CommonModule, CourseCardComponent]
 })
 export class CoursesListComponent implements OnInit {
   ngOnInit(): void {
@@ -42,7 +43,8 @@ export class CoursesListComponent implements OnInit {
       price: 60,
       date: '05-18-2025',
       soldOut: false,
-      img: 'angular-logo.png'
+      img: 'angular-logo.png',
+      onSale: true
     },
     {
       id: 3,
@@ -51,11 +53,10 @@ export class CoursesListComponent implements OnInit {
       price: 45.99,
       date: '07-21-2025',
       soldOut: false,
-      img: 'typescript-logo.png'
+      img: 'typescript-logo.png',
+      onSale: false
     }
   ];
 
-  viewDetails(title: string): void {
-    alert(`Viewing details for ${title}`)
-  }
+
 }

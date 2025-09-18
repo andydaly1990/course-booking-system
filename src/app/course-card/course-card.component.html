@@ -1,0 +1,19 @@
+<div class="course-card">
+    <h3>{{ course.title }}</h3>
+    <span class="badge" *ngIf="course.soldOut">Sold Out</span>
+    <p>{{ course.description }}</p>
+    <p>{{ course.price | currency:'EUR'}}</p>
+    <p>{{ course.date | date: 'longDate'}}</p>
+    
+    <img 
+        [ngStyle]="{'border': course.soldOut ? '2px solid red' : ''}" 
+        [src]="course.img" 
+        [alt]="course.title">
+    @if (course.price < 50 && course.soldOut==false) {
+        <div class="special-offer">Special Offer</div>
+    }
+    <button *ngIf="!course.soldOut" (click)="viewDetails(course.title)">View Details</button>
+    @if(course.onSale){
+        <div class="on-sale">On Sale!</div>
+    }
+</div>

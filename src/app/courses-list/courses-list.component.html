@@ -1,23 +1,5 @@
 <h2>{{ title }}</h2>
-@for (item of courses; track item.id) {
-<div class="course-item">
-    <h3>{{ item.title }}</h3>
-    <span class="badge" *ngIf="item.soldOut">Sold Out</span>
-    <p>{{ item.description }}</p>
-    <p>{{ item.price | currency:'EUR'}}</p>
-    <p>{{ item.date | date: 'longDate'}}</p>
-    
-    <img 
-        [ngStyle]="{'border': item.soldOut ? '2px solid red' : ''}" 
-        [src]="item.img" 
-        [alt]="item.title">
-    @if (item.price < 50 && item.soldOut==false) {
-        <div class="special-offer">Special Offer</div>
-    }
-    <button *ngIf="!item.soldOut" (click)="viewDetails(item.title)">View Details</button>
-</div>
+@for (course of courses; track course.id) {
+<app-course-card [course]="course"></app-course-card>
 }
-
-
-
 
